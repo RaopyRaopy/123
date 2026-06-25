@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.test-tmp/
+.mypy_cache/
+data/travel_memory.json
+logs/
+.env
+node_modules/
+.npm-cache/
+dist/

@@ -1,0 +1,16 @@
+{
+  "users": {
+    "demo-user": {
+      "profile": {
+        "name": "",
+        "tags": [
+          "避开人多和商业化景点"
+        ],
+        "budget_range": "5000",
+        "companions": []
+      },
+      "trip_history": [],
+      "feedback": []
+    }
+  }
+}

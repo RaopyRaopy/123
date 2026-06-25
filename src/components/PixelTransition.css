@@ -1,0 +1,39 @@
+.pixel-transition {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #0f1210;
+  border-radius: 14px;
+  isolation: isolate;
+}
+
+.pixel-transition__layer,
+.pixel-transition__grid {
+  position: absolute;
+  inset: 0;
+}
+
+.pixel-transition__layer {
+  overflow: hidden;
+}
+
+.pixel-transition__layer img,
+.pixel-transition__layer video,
+.pixel-transition__layer picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.pixel-transition__grid {
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pixel-transition__pixel {
+  position: absolute;
+  display: none;
+  border-radius: 1px;
+  will-change: transform, opacity;
+}

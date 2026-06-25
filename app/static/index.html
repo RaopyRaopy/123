@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>智能旅行伴侣 — 记忆驱动的自由行规划</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <!-- ── Memory sidebar ── -->
+      <aside class="memory-panel" aria-label="旅行记忆">
+        <div class="brand">
+          <span class="brand-mark">旅</span>
+          <div>
+            <h1>智能旅行伴侣</h1>
+            <p>记忆驱动的自由行规划</p>
+          </div>
+        </div>
+
+        <div class="memory-scroll">
+          <section class="profile-block">
+            <h2>偏好记忆</h2>
+            <p class="section-subtitle">我们记住的你</p>
+            <div id="profileTags" class="tag-list"></div>
+          </section>
+
+          <section class="profile-block">
+            <h2>历史避雷</h2>
+            <p class="section-subtitle">不会再踩的坑</p>
+            <div id="historyList" class="history-list"></div>
+          </section>
+
+          <button id="clearPrefsButton" class="clear-prefs-button" type="button" title="清除所有偏好记忆和反馈">
+            重置偏好记忆
+          </button>
+        </div>
+      </aside>
+
+      <!-- ── Chat center ── -->
+      <section class="chat-panel" aria-label="对话">
+        <div class="chat-header">
+          <div>
+            <h2>行程对话</h2>
+            <p id="connectionState"><span class="connection-dot offline"></span>本地服务 · 规则模式</p>
+          </div>
+          <div class="chat-actions">
+            <div class="mode-toggle" role="group" aria-label="规划模式">
+              <button type="button" data-mode="rules" aria-pressed="true">规则模式</button>
+              <button type="button" data-mode="agent" aria-pressed="false">Agent 模式</button>
+            </div>
+            <button id="resetButton" class="ghost-button" type="button">清空对话</button>
+          </div>
+        </div>
+
+        <div id="messageList" class="message-list" aria-live="polite"></div>
+
+        <div class="prompt-row" aria-label="快捷输入">
+          <button type="button" data-prompt="广州2天去小众景点，避开人多和商业化景点">广州两天</button>
+          <button type="button" data-prompt="北京3天，预算5000，想看历史文化和安静街区">北京三天</button>
+          <button type="button" data-prompt="今天广州下雨了，想改成室内活动">雨天调整</button>
+          <button type="button" data-prompt="我不喜欢双廊太商业化，下次帮我避开类似地方">记录避雷</button>
+        </div>
+
+        <form id="chatForm" class="composer">
+          <textarea id="messageInput" rows="2" placeholder="说出你的旅行需求..." required></textarea>
+          <button type="submit">发送</button>
+        </form>
+      </section>
+
+      <!-- ── Itinerary sidebar ── -->
+      <aside class="itinerary-panel" aria-label="行程">
+        <div class="itinerary-header">
+          <h2>实时行程</h2>
+          <span id="tripMeta">待生成</span>
+        </div>
+
+        <div class="itinerary-scroll">
+          <div id="mapContainer" class="map-container hidden">
+            <div id="amapContainer"></div>
+            <span class="map-attribution">高德地图</span>
+          </div>
+          <div id="nearbyPoiList" class="nearby-poi-list hidden"></div>
+          <div id="itineraryView" class="itinerary-view">
+            <div class="empty-state">
+              <div>
+                <div class="empty-illustration">&#9992;</div>
+                <p>还没有行程</p>
+                <p style="font-size:12px;color:var(--slate);margin-top:4px">开始对话来规划你的旅行</p>
+              </div>
+            </div>
+          </div>
+          <div id="reminderSection" class="reminder-section">
+            <h2>主动提醒</h2>
+            <div id="reminderList" class="reminder-list"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
